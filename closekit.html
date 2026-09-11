@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CloseKit — Build $10,000 Websites in 2 Hours</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;background:#0B1426;color:#e5e5e5;line-height:1.6;-webkit-font-smoothing:antialiased;width:100%;overflow-x:hidden}
+h1,h2,h3{font-family:Oswald,Impact,sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
+a{text-decoration:none}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:100}
+.container{max-width:1000px;margin:0 auto;padding:0 24px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(11,20,38,.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(6,147,227,.15)}
+.nav-inner{max-width:1000px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:700;font-size:1.1rem;letter-spacing:.2em;text-transform:uppercase}
+.logo span{color:#0693e3}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 40px;border-radius:12px;background:#0693e3;color:#fff;font-weight:700;font-size:1.05rem;transition:all .2s;text-decoration:none}
+.cta:hover{background:#003388;transform:scale(1.04);box-shadow:0 10px 30px rgba(6,147,227,.3)}
+.cta-sm{padding:10px 24px;font-size:.85rem}
+.cta-secondary{display:inline-flex;align-items:center;padding:16px 40px;border-radius:12px;border:2px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-weight:600;transition:all .2s;text-decoration:none}
+.cta-secondary:hover{border-color:rgba(6,147,227,.5);color:#0693e3}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;text-align:center}
+.mesh{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.mesh::before{content:'';position:absolute;width:150%;height:150%;top:-25%;left:-25%;background:radial-gradient(circle at 30% 30%,rgba(6,147,227,.12),transparent 40%),radial-gradient(circle at 70% 60%,rgba(142,209,252,.08),transparent 45%);animation:mesh-move 30s ease-in-out infinite alternate}
+@keyframes mesh-move{0%{transform:translate(0,0)}50%{transform:translate(-3%,2%) scale(1.03)}100%{transform:translate(2%,-2%) scale(1.01)}}
+.grid-bg{position:absolute;inset:0;opacity:.03;background-image:linear-gradient(#0693e3 1px,transparent 1px),linear-gradient(90deg,#0693e3 1px,transparent 1px);background-size:80px 80px}
+.hero-content{position:relative;z-index:10;max-width:800px;margin:0 auto;padding:0 24px}
+.label{display:inline-block;padding:6px 20px;border-radius:100px;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:#0693e3;background:rgba(6,147,227,.1);border:1px solid rgba(6,147,227,.15);margin-bottom:24px}
+h1{font-size:clamp(2.5rem,7vw,5rem);font-weight:300;margin-bottom:24px}
+.gradient-text{background:linear-gradient(135deg,#0693e3,#8ed1fc);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:1.25rem;color:rgba(255,255,255,.5);max-width:640px;margin:0 auto 40px}
+.btn-row{display:flex;flex-direction:column;gap:16px;align-items:center}
+section{padding:80px 24px}
+.label,.section-label{display:inline-block;padding:6px 20px;border-radius:100px;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:#0693e3;background:rgba(6,147,227,.1);margin-bottom:16px}
+h2{font-size:clamp(2rem,5vw,3.5rem);font-weight:300;margin-bottom:16px;text-align:center}
+.sub{text-align:center;color:rgba(255,255,255,.4);max-width:600px;margin:0 auto 50px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:1000px;margin:0 auto}
+.step{background:#0f1a2e;border:1px solid rgba(6,147,227,.1);border-radius:16px;padding:32px;transition:all .3s}
+.step:hover{transform:translateY(-6px);border-color:rgba(6,147,227,.35)}
+.step .num{font-size:4rem;font-weight:300;color:rgba(6,147,227,.15);line-height:1;margin-bottom:16px}
+.step h3{font-size:1.4rem;margin-bottom:10px}
+.step p{color:rgba(255,255,255,.4);font-size:.9rem}
+.step .time{display:inline-block;margin-top:12px;font-size:.75rem;color:#0693e3;background:rgba(6,147,227,.1);padding:4px 12px;border-radius:100px}
+.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:900px;margin:0 auto}
+.price-card{background:#0f1a2e;border:1px solid rgba(6,147,227,.1);border-radius:20px;padding:40px;text-align:center;position:relative}
+.price-card.featured{border-color:rgba(6,147,227,.5)}
+.badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#0693e3;color:#fff;font-size:.65rem;font-weight:700;text-transform:uppercase;padding:6px 16px;border-radius:100px}
+.price-card .amount{font-size:3.5rem;font-weight:700;color:#0693e3;margin:20px 0 4px}
+.price-card .per{color:rgba(255,255,255,.3);font-size:.85rem;margin-bottom:24px}
+.price-card ul{list-style:none;text-align:left;margin-bottom:32px}
+.price-card li{padding:8px 0;color:rgba(255,255,255,.55);font-size:.9rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.price-card li::before{content:'✓';color:#0693e3;margin-right:10px}
+.final{text-align:center;padding:100px 24px}
+.final p{color:rgba(255,255,255,.4);max-width:520px;margin:0 auto 40px}
+footer{padding:32px;border-top:1px solid rgba(6,147,227,.1);text-align:center;color:rgba(255,255,255,.2);font-size:.8rem}
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#0693e3,#8ed1fc);z-index:999;width:0}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1s,transform 1s}
+.reveal.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<nav class="nav"><div class="nav-inner">
+<div class="logo">Close<span>Kit</span></div>
+<a href="#pricing" class="cta cta-sm">Get Access</a>
+</div></nav>
+<div class="hero">
+<div class="mesh"></div><div class="grid-bg"></div>
+<div class="hero-content">
+<div class="label">For Agencies & Solo Builders</div>
+<h1>Build $10,000 Websites<br><span class="gradient-text">In 2 Hours</span><br>For $0.10</h1>
+<p>The complete system: scrape any contractor's site, extract their brand, and ship a premium redesign before they finish their coffee. Sites that close $2,500 deals.</p>
+<div class="btn-row">
+<a href="#pricing" class="cta">Get CloseKit Access</a>
+<a href="#how" class="cta-secondary">See How It Works</a>
+</div>
+</div>
+</div>
+
+<section id="how"><div class="container">
+<div style="text-align:center"><span class="label">The System</span></div>
+<h2>Three Steps. Three Hours. <span class="gradient-text">One Closed Deal.</span></h2>
+<p class="sub">The exact pipeline used to build, propose, and close contractor websites.</p>
+<div class="steps">
+<div class="step reveal"><div class="num">01</div><h3>Scrape & Extract</h3><p>Pull the client's entire site: colors, images, reviews, services, contact info.</p><span class="time">10 min</span></div>
+<div class="step reveal"><div class="num">02</div><h3>Build & Deploy</h3><p>Next.js + GSAP + Lenis. Glassmorphism nav, parallax hero, pinned scroll, animated counters.</p><span class="time">2 hrs</span></div>
+<div class="step reveal"><div class="num">03</div><h3>Propose & Close</h3><p>Send the email with the live preview. Demo in person. $500 website + $2,000 lead gen.</p><span class="time">30 min</span></div>
+</div>
+</div></section>
+
+<section id="pricing"><div class="container">
+<div style="text-align:center"><span class="label">Pricing</span></div>
+<h2>Pay Once. <span class="gradient-text">Close Forever.</span></h2>
+<p class="sub">One closed contractor pays for this 5x over.</p>
+<div class="pricing">
+<div class="price-card reveal">
+<h3>The System</h3>
+<div class="amount">$497</div>
+<div class="per">one-time</div>
+<ul><li>Everything in the includes list</li><li>Lifetime updates</li><li>Unlimited client sites</li><li>Commercial license</li></ul>
+<a href="#" class="cta" style="display:flex">Get The System</a>
+</div>
+<div class="price-card featured reveal">
+<div class="badge">Best Value</div>
+<h3>System + Done-With-You</h3>
+<div class="amount">$997</div>
+<div class="per">+ $297/mo</div>
+<ul><li>Everything in The System</li><li>First client site built with you</li><li>AI calling configured</li><li>iMessage (Contractor Blue) set up</li><li>Priority support</li></ul>
+<a href="#" class="cta" style="display:flex;background:#003388">Start Closing</a>
+</div>
+</div>
+</div></section>
+
+<div class="final">
+<span class="label">No Risk</span>
+<h2>One Contractor Pays<br><span class="gradient-text">For The Whole Thing.</span></h2>
+<p>Website: $500. Lead gen: $2,000 + $200/appointment. Close one client = 5x your investment.</p>
+<a href="#pricing" class="cta">Get CloseKit Now</a>
+</div>
+
+<footer>CloseKit — Julius Young III · Quartermaster AI Studio</footer>
+
+<div class="container" style="margin-top:-40px;padding-bottom:40px">
+<div class="includes-grid">
+<div class="inc reveal">✓ Web Design Bible (24 rules)</div>
+<div class="inc reveal">✓ Scraping scripts</div>
+<div class="inc reveal">✓ Next.js template (20 animations)</div>
+<div class="inc reveal">✓ Copy Framework (hooks + principles)</div>
+<div class="inc reveal">✓ Humanizer voice rules</div>
+<div class="inc reveal">✓ Email templates that closed clients</div>
+<div class="inc reveal">✓ Proposal template</div>
+<div class="inc reveal">✓ AI calling setup (Bland.ai scripts)</div>
+<div class="inc reveal">✓ iMessage spec (SendBlue)</div>
+<div class="inc reveal">✓ 15-point deployment checklist</div>
+<div class="inc reveal">✓ Whop payment links</div>
+<div class="inc reveal">✓ Hosting guide ($50/mo recurring)</div>
+</div>
+</div>
+
+<script>
+(function(){
+var p=document.getElementById('progress');
+window.addEventListener('scroll',function(){var h=document.documentElement;p.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100+'%';});
+var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');}});},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(function(el){o.observe(el);});
+})();
+</script>
+</body>
+</html>
+

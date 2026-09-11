@@ -259,7 +259,27 @@ $997 setup + $297/mo per contractor.
 - [ ] Spotlight hover on cards
 - [ ] Grain texture
 - [ ] Copy: Hook + 8 principles + humanizer
+- [ ] Background is NOT an empty void — mesh + orbs + grid + geo shapes
 - [ ] Mobile 375px test
 - [ ] Lighthouse 90+
 - [ ] Deploy + email
+
+# BACKGROUND SYSTEM (Never an Empty Void)
+
+A dark background with nothing on it feels dead. Every dark site needs layered background elements:
+
+| Layer | CSS Class | Purpose |
+|---|---|---|
+| 1. Base gradient | `bg-gradient-to-br` | Foundation depth |
+| 2. Gradient mesh | `.mesh-bg` | Slow-drifting color blobs (30s loop) |
+| 3. Architectural grid | `.grid-bg` | Blueprint feel (3% opacity) |
+| 4. Gradient orbs | `.orb .orb-1 .orb-2` | Light sources (blur 100px) |
+| 5. Geo shapes | `.geo-shape` | Drifting geometric forms (25s loop) |
+| 6. Film grain | `body::after` | Cinematic texture (4% opacity) |
+
+**Rule:** If the background looks like `#000` with nothing on it, you failed. Layer minimum 3 background elements.
+
+**Light mode sites:** Same principle — use soft gradient washes, subtle patterns, or image overlays. Never flat white.
+
+**Dark vs Light (Research):** Dark WON the A/B conversion test (Search Engine Land). Dark = premium, CTA contrast pops. Use dark for contractors/tech. Use light for medical/legal/family services.
 
