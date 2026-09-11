@@ -305,5 +305,131 @@ If your website looks like ChatGPT designed it, you failed. Here's what to avoid
 | Testimonials | "Great service!" | Real quotes with names + platform |
 | Stats | "Many projects completed" | "500+ projects. 8 years. 12 team." |
 
-**The Test:** If someone sees your site and thinks "an AI made this," rebuild it. The site should feel like a human who knows design spent 40 hours on it.
+## THE TEST:** If someone sees your site and thinks "an AI made this," rebuild it. The site should feel like a human who knows design spent 40 hours on it.
+
+# RULE 0: STEAL FIRST, BUILD NEVER
+
+Before writing ANY custom animation, component, or layout block from scratch, search these two proven libraries first. Copy their component, adapt colors, ship it.
+
+**Your custom code is a bug factory. Their code is battle-tested by 120,000+ developers.**
+
+## The Libraries
+
+| Library | Stars | Install | Best For |
+|---|---|---|---|
+| [Magic UI](https://magicui.design/docs/components) | 22K+ | `npx shadcn add "https://magicui.design/r/[component]"` | Marquees, tickers, blur-fade reveals, magic cards, shine borders, particles, text effects |
+| [Aceternity UI](https://ui.aceternity.com/components) | 120K users | Copy-paste from site | Hero sections, pricing sections, bento grids, spotlights, text effects, background beams |
+
+## Install Workflow
+
+```bash
+# One-time: init shadcn
+npx shadcn@latest init -y --defaults
+
+# Add Magic UI components (they become yours, fully editable)
+npx shadcn@latest add \
+  "https://magicui.design/r/marquee" \
+  "https://magicui.design/r/number-ticker" \
+  "https://magicui.design/r/blur-fade" \
+  "https://magicui.design/r/magic-card" \
+  "https://magicui.design/r/shine-border" \
+  "https://magicui.design/r/animated-gradient-text"
+```
+
+Dependencies needed: `motion` (framer-motion), `clsx`, `tailwind-merge`
+
+## Component Mapping (Custom → Stolen)
+
+| Custom Code (DON'T BUILD) | Magic UI Component (STEAL THIS) |
+|---|---|
+| Custom marquee CSS + keyframes | `Marquee` (pause-on-hover, speed control) |
+| Custom counter with GSAP | `NumberTicker` (spring physics, delay stagger) |
+| Custom reveal with IntersectionObserver | `BlurFade` (staggered children, direction control) |
+| Custom gradient text class | `AnimatedGradientText` (animated background position) |
+| Custom spotlight hover | `MagicCard` (gradient follows cursor) |
+| Custom glow/shine border | `ShineBorder` (conic gradient rotation) |
+| Custom pricing card layout | Aceternity Pricing Section |
+| Custom hero section | Aceternity Hero Section (23+ blocks) |
+| Custom particle background | Magic UI `Particles` or `Meteors` |
+
+## Playwright QA Test (MANDATORY before deploy)
+
+```javascript
+// qa-test.js — run with: node qa-test.js (after npm run start)
+const { chromium } = require('playwright');
+(async () => {
+  const browser = await chromium.launch();
+  const results = [];
+  const add = (test, pass, detail) => {
+    results.push({ test, pass, detail });
+    console.log(`${pass ? '✅' : '❌'} ${test} — ${detail}`);
+  };
+
+  for (const vp of [
+    { w: 1920, h: 1080, name: 'Desktop 1920' },
+    { w: 1440, h: 900, name: 'Laptop 1440' },
+    { w: 375, h: 812, name: 'Mobile 375' },
+  ]) {
+    const page = await browser.newPage({ viewport: { width: vp.w, height: vp.h } });
+    await page.goto('http://localhost:3000', { waitUntil: 'networkidle' });
+    await page.waitForTimeout(1500);
+
+    // 1. CENTERING: H1 must be within 5% of viewport center
+    const h1Box = await page.locator('h1').first().boundingBox();
+    if (h1Box) {
+      const offset = Math.abs((h1Box.x + h1Box.width / 2) - vp.w / 2);
+      add(`[${vp.name}] H1 centered`, offset < vp.w * 0.05, `offset: ${Math.round(offset)}px`);
+    }
+
+    // 2. NO BROKEN TAILWIND CLASSES (bg-#hex instead of bg-[#hex])
+    const broken = await page.evaluate(() =>
+      document.querySelectorAll('[class*="bg-#"], [class*="text-#"], [class*="border-#"]').length
+    );
+    add(`[${vp.name}] No broken Tailwind`, broken === 0, `${broken} broken classes`);
+
+    // 3. CTA BUTTON HAS VISIBLE BACKGROUND
+    const cta = page.locator('.cta-pulse').first();
+    if (await cta.count() > 0) {
+      const bg = await cta.evaluate((el) => getComputedStyle(el).backgroundColor);
+      add(`[${vp.name}] CTA visible`, bg !== 'rgba(0, 0, 0, 0)', `bg: ${bg}`);
+    }
+
+    // 4. NO EMOJI ICONS
+    const bodyText = await page.locator('body').textContent();
+    const emojis = (bodyText.match(/[\u{1F300}-\u{1F9FF}]/gu) || []).length;
+    add(`[${vp.name}] No emoji icons`, emojis === 0, `${emojis} emojis`);
+
+    // Screenshot for visual review
+    await page.screenshot({ path: `qa-${vp.name.replace(/\s/g, '-')}.png` });
+    await page.close();
+  }
+
+  const failed = results.filter(r => !r.pass);
+  console.log(`RESULTS: ${results.length - failed.length}/${results.length} passed`);
+  await browser.close();
+})();
+```
+
+**Run:** `npm run build && npm run start & sleep 4 && node qa-test.js`
+
+**Pass requirement: 100%. Any failure = fix before deploy.**
+
+## Root Cause of Off-Center Layout (and the fix)
+
+**Problem:** Content shifted left because `body` was a normal block element. Child elements with `margin: auto` center within their parent, but `main` was `width: 100%` so `margin: auto` did nothing — content aligned left by default inside a full-width container.
+
+**Fix:** Make `body` a flex column container with `align-items: center`. This centers ALL children (nav, main, sections) without needing margin hacks on each element.
+
+```css
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  width: 100%;
+  margin: 0 auto !important;
+}
+```
 
