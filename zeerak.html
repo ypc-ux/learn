@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zeerak — Ascent Placements BD Dashboard</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:#0B1426;color:#e5e5e5;line-height:1.6;padding:24px;width:100%;overflow-x:hidden}
+h1,h2,h3{font-family:Oswald,Impact,sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
+a{color:#0693e3;text-decoration:none}a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:40px 24px}
+.hero{text-align:center;padding:40px 0 30px;border-bottom:1px solid rgba(6,147,227,.15);margin-bottom:40px;position:relative;overflow:hidden}
+.mesh{position:absolute;inset:0;pointer-events:none;opacity:.5}
+.mesh::before{content:'';position:absolute;width:150%;height:150%;top:-25%;left:-25%;background:radial-gradient(circle at 30% 30%,rgba(6,147,227,.1),transparent 40%),radial-gradient(circle at 70% 60%,rgba(142,209,252,.06),transparent 45%);animation:mesh-move 30s ease-in-out infinite alternate}
+@keyframes mesh-move{0%{transform:translate(0,0)}50%{transform:translate(-3%,2%) scale(1.03)}100%{transform:translate(2%,-2%)}}
+.hero h1{font-size:2.5rem;color:#fff;font-weight:300;margin-bottom:8px;position:relative}
+.hero .role{color:#0693e3;font-size:.75rem;text-transform:uppercase;letter-spacing:.3em;position:relative}
+.hero .company{color:rgba(255,255,255,.4);margin-top:8px;position:relative}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.card{background:#0f1a2e;border:1px solid rgba(6,147,227,.15);border-radius:16px;padding:28px;transition:border-color .3s}
+.card:hover{border-color:rgba(6,147,227,.4)}
+.section-label{display:inline-block;padding:6px 20px;border-radius:100px;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:#0693e3;background:rgba(6,147,227,.1);margin:40px 0 20px}
+.card .tag{display:inline-block;font-size:.6rem;padding:3px 10px;border-radius:100px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.tag-doc{background:rgba(6,147,227,.15);color:#0693e3}
+.tag-agent{background:rgba(139,92,246,.15);color:#8b5cf6}
+.tag-ascent{background:rgba(34,197,94,.15);color:#22c55e}
+.card h3{font-size:1rem;color:#fff;margin-bottom:8px}
+.card p{color:rgba(255,255,255,.45);font-size:.85rem;margin-bottom:10px}
+.card .link{display:inline-block;font-size:.8rem;color:#0693e3;font-weight:600}
+.checklist{list-style:none;padding:0}
+.checklist li{padding:8px 0;color:rgba(255,255,255,.55);font-size:.9rem;border-bottom:1px solid rgba(255,255,255,.05)}
+.checklist li::before{content:'[ ] ';color:#0693e3;font-weight:700}
+.routine{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.routine .block{background:#0f1a2e;border:1px solid rgba(6,147,227,.15);border-radius:14px;padding:20px}
+.routine .time{font-size:.7rem;color:#0693e3;text-transform:uppercase;letter-spacing:.15em;margin-bottom:8px;font-weight:700}
+.routine ol{padding-left:18px;color:rgba(255,255,255,.5);font-size:.85rem}
+.routine ol li{padding:3px 0}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;text-align:center}
+.metric{background:#0f1a2e;border:1px solid rgba(6,147,227,.15);border-radius:12px;padding:18px}
+.metric .n{font-size:1.6rem;font-weight:700;color:#0693e3}
+.metric .l{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.3);margin-top:4px}
+code{background:rgba(6,147,227,.1);padding:2px 8px;border-radius:4px;color:#8ed1fc;font-size:.82rem}
+pre{background:#0a0f1a;border:1px solid rgba(6,147,227,.15);border-radius:12px;padding:20px;overflow-x:auto;font-size:.8rem;color:#8ed1fc;line-height:1.7;margin:12px 0}
+footer{text-align:center;padding:40px;border-top:1px solid rgba(6,147,227,.1);margin-top:60px;color:rgba(255,255,255,.2);font-size:.8rem}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="hero">
+<div class="mesh"></div>
+<div class="role">Community Manager & Marketing Lead</div>
+<h1>Zeerak — BD Dashboard</h1>
+<div class="company">Ascent Placements · Portfolio Company</div>
+</div>
+
+<div class="section-label">Your Docs — Read These First</div>
+<div class="grid">
+<div class="card"><span class="tag tag-doc">START HERE</span><h3>BD Playbook</h3><p>The daily workflow, 5 cold email personas, the email formula, prospect targeting, weekly metrics. This is your operating manual.</p><a class="link" href="https://github.com/ypc-ux/learn/blob/main/ASCENT_BD_PLAYBOOK.md" target="_blank">ASCENT_BD_PLAYBOOK.md →</a></div>
+<div class="card"><span class="tag tag-agent">AGENTS</span><h3>Agent System</h3><p>3 agents that run your BD department: ProspectFinder, ColdEmailer, OutreachTracker. Setup guide + commands.</p><a class="link" href="https://github.com/ypc-ux/learn/blob/main/AGENTS.md" target="_blank">AGENTS.md →</a></div>
+<div class="card"><span class="tag tag-doc">REFERENCE</span><h3>A16Z Content Blueprint</h3><p>Hook architecture, 8 scriptwriting principles, 4 failure diagnostics. Use for all content and emails.</p><a class="link" href="https://ypc-ux.github.io/learn/" target="_blank">Learn Hub →</a></div>
+<div class="card"><span class="tag tag-doc">CODE</span><h3>The Repo</h3><p>agentic_priming_pilot — CLI commands, system prompts, store, outcome tracking. The actual code.</p><a class="link" href="https://github.com/ypc-ux/ypc-ux/tree/claude/handoff-todo/agentic_priming_pilot" target="_blank">agentic_priming_pilot →</a></div>
+</div>
+
+<div class="section-label">Your Daily Routine (~60 min)</div>
+<div class="routine">
+<div class="block"><div class="time">Morning · 20 min</div><ol><li>Open VS Code</li><li>Find 10 prospects (Google Maps)</li><li>Generate 10 cold emails</li><li>Personalize top 3</li></ol></div>
+<div class="block"><div class="time">Send · 15 min</div><ol><li>Send 3 personalized emails</li><li>Send 7 template emails</li><li>No links in first email</li></ol></div>
+<div class="block"><div class="time">Track · 10 min</div><ol><li>Log all sends</li><li>Log responses</li><li>Check ops digest</li></ol></div>
+<div class="block"><div class="time">Friday · 30 min</div><ol><li>Run weekly report</li><li>Regenerate weak scripts</li><li>Update dashboard</li></ol></div>
+</div>
+
+<div class="section-label">Weekly Targets</div>
+<div class="metrics">
+<div class="metric"><div class="n">50</div><div class="l">Emails / week</div></div>
+<div class="metric"><div class="n">5%</div><div class="l">Response rate</div></div>
+<div class="metric"><div class="n">2</div><div class="l">Calls booked</div></div>
+<div class="metric"><div class="n">20%</div><div class="l">Close rate</div></div>
+</div>
+
+<div class="section-label">Setup (One-Time)</div>
+<div class="card">
+<pre>git clone https://github.com/ypc-ux/ypc-ux ypc-ux
+cd ypc-ux/agentic_priming_pilot
+
+# Install Ollama (free local LLM): https://ollama.com/download
+ollama pull mistral
+
+# Generate your first scripts
+python -m phase3.cli generate-scripts \
+  --context "med spa owner in Atlanta" \
+  --num-variants 5</pre>
+<p style="color:rgba(255,255,255,.4);font-size:.85rem">If Ollama doesn't work, ask Julius for hosted model access.</p>
+</div>
+
+<div class="section-label">Ascent Weekly Checklist</div>
+<div class="card">
+<ul class="checklist">
+<li>3 pieces of content posted (community management)</li>
+<li>10 prospect emails sent</li>
+<li>1 case study or result documented</li>
+<li>Dashboard metrics updated</li>
+<li>Friday: report sent to Julius</li>
+</ul>
+</div>
+
+<footer>Ascent Placements · BD System v1.0 · <a href="https://github.com/ypc-ux" target="_blank">github.com/ypc-ux</a> · Updates with the repo</footer>
+</div>
+</body>
+</html>
