@@ -181,3 +181,85 @@ CTA: `text-2xl md:text-3xl font-bold`
 *This system generates $10,000-quality websites for $0.10 in API costs. Scale to 100 clients = $50,000/month.*
 
 **— Julius Young III, Quartermaster AI Studio**
+
+# COPY FRAMEWORK (A16Z Blueprint Applied)
+
+## 3-Step Hook for Every Section Header
+
+| Step | Example |
+|---|---|
+| 1. Context Lean-In | "Your roof leaks. We fix it." |
+| 2. Scroll-Stop Interjection | "Most companies stop at the roof. We don't." |
+| 3. Contrarian Snapback | "The guy on your roof is the owner's son." |
+
+## 8 Principles for Website Copy
+
+| # | Principle | Rule |
+|---|---|---|
+| 1 | Curiosity & Contrast | Headers that contradict expectations |
+| 2 | Speed to Value | First line = the benefit |
+| 3 | Value Density | No filler. Every word earns its place. |
+| 4 | Clarity | 6th-grade level. "We fix roofs." |
+| 5 | Absorption | Bullets, not paragraphs. |
+| 6 | Anticipation | "The result?" forces reading. |
+| 7 | Emotional Resonance | Family story. Human, not corporate. |
+| 8 | Rhythm | Short sentences. Staccato. |
+
+## Humanizer Voice Rules
+
+| Bad | Good |
+|---|---|
+| We believe we can help | We guarantee it. |
+| We are | We're |
+| Our clients receive | You get |
+| Committed to excellence | We show up on time. |
+
+## Value Transfer on Websites
+
+| Stage | Section |
+|---|---|
+| Tease | Hero headline |
+| Sample | Stats — proof |
+| Drip | Services — simple descriptions |
+| Transfer | About + CTA — walkaway value |
+
+## Four Horsemen (Website)
+
+| Problem | Fix |
+|---|---|
+| Header too vague | 5 words or less |
+| Visitor confused | 6th-grade. Simplify. |
+| Not targeted | Use You/Your |
+| Bounces | Add contrast. State A vs B. |
+
+# CLOSEKIT
+
+The process (scrape, build, propose, email, close) = CloseKit.
+
+| Step | Time |
+|---|---|
+| Scrape + extract | 10 min |
+| Build redesign | 2 hrs |
+| Generate proposal | 30 min |
+| Draft email + AI calls | 20 min |
+| Total | 3 hrs |
+
+$997 setup + $297/mo per contractor.
+
+# DEPLOYMENT CHECKLIST
+
+- [ ] Colors from client site (extracted)
+- [ ] 3+ CTAs (tel: links, text-2xl+)
+- [ ] Trust logos (hero + footer)
+- [ ] Lenis + GSAP + Framer Motion
+- [ ] Parallax, pinned scroll, counters, reveals
+- [ ] Real client photos
+- [ ] Gradient text + orbs + grid
+- [ ] Glassmorphism nav + brand marquee
+- [ ] Spotlight hover on cards
+- [ ] Grain texture
+- [ ] Copy: Hook + 8 principles + humanizer
+- [ ] Mobile 375px test
+- [ ] Lighthouse 90+
+- [ ] Deploy + email
+
