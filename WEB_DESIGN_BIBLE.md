@@ -283,3 +283,27 @@ A dark background with nothing on it feels dead. Every dark site needs layered b
 
 **Dark vs Light (Research):** Dark WON the A/B conversion test (Search Engine Land). Dark = premium, CTA contrast pops. Use dark for contractors/tech. Use light for medical/legal/family services.
 
+# ANTI-AI-SLOP RULES
+
+If your website looks like ChatGPT designed it, you failed. Here's what to avoid:
+
+| Rule | AI Slop (Bad) | Anti-Slop (Good) |
+|---|---|---|
+| Photos | Generic stock images | Client's real photos only |
+| Copy | "We provide quality solutions" | "We fix roofs. Same family. Same truck." |
+| Layout | Everything centered, symmetrical | Asymmetric grids, varied spacing |
+| Icons | 🏠 🔧 ⚡ emoji icons | Custom SVG or real photos |
+| Sections | Hero → Services → About → CTA | Each section has personality |
+| Voice | "Leverage synergies" | "Show up and sell" |
+| Background | Flat #000 or #0B1426, empty void | 6-layer background system |
+| Motion | Static, no animation | GSAP + Lenis + Framer Motion |
+| CTAs | Small text-sm buttons | text-2xl minimum, BAM |
+| Alignment | Everything text-center | Mix left-aligned body + centered headers |
+| Colors | Tailwind defaults (emerald, indigo) | Client's actual brand colors (extracted) |
+| Typography | System default font | Oswald display + Inter body |
+| Gradients | Purple-to-pink (the AI default) | Client's brand colors or blue system |
+| Testimonials | "Great service!" | Real quotes with names + platform |
+| Stats | "Many projects completed" | "500+ projects. 8 years. 12 team." |
+
+**The Test:** If someone sees your site and thinks "an AI made this," rebuild it. The site should feel like a human who knows design spent 40 hours on it.
+
