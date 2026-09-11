@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studio Status — Team Update</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:#0B1426;color:#e5e5e5;line-height:1.6;-webkit-font-smoothing:antialiased;width:100%;overflow-x:hidden;padding:24px}
+h1,h2,h3{font-family:Oswald,Impact,sans-serif;text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
+a{color:#0693e3;text-decoration:none}a:hover{text-decoration:underline}
+.container{max-width:1100px;margin:0 auto;padding:40px 24px}
+.hero{text-align:center;padding:40px 0 30px;border-bottom:1px solid rgba(6,147,227,.15);margin-bottom:40px}
+.hero h1{font-size:2.5rem;color:#fff;font-weight:300;margin-bottom:8px}
+.hero .date{color:#0693e3;font-size:.75rem;text-transform:uppercase;letter-spacing:.3em}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-bottom:50px;text-align:center}
+.stat{background:#0f1a2e;border:1px solid rgba(6,147,227,.15);border-radius:16px;padding:24px}
+.stat .n{font-size:2.5rem;font-weight:700;color:#0693e3}
+.stat .l{font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.35);margin-top:6px}
+.section-label{display:inline-block;padding:6px 20px;border-radius:100px;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:#0693e3;background:rgba(6,147,227,.1);margin:40px 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.card{background:#0f1a2e;border:1px solid rgba(6,147,227,.15);border-radius:16px;padding:24px;transition:border-color .3s}
+.card:hover{border-color:rgba(6,147,227,.4)}
+.card .tag{display:inline-block;font-size:.6rem;padding:3px 10px;border-radius:100px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+.tag-live{background:rgba(6,147,227,.15);color:#0693e3}
+.tag-done{background:rgba(34,197,94,.15);color:#22c55e}
+.tag-blocked{background:rgba(239,68,68,.15);color:#ef4444}
+.tag-pending{background:rgba(234,179,8,.15);color:#eab308}
+.card h3{font-size:1rem;color:#fff;margin-bottom:8px}
+.card p{color:rgba(255,255,255,.45);font-size:.85rem}
+.card .link{display:inline-block;margin-top:10px;font-size:.8rem;color:#0693e3}
+.priority{display:flex;align-items:center;gap:12px;padding:14px 20px;background:#0f1a2e;border-radius:12px;margin-bottom:10px;border-left:3px solid #0693e3}
+.priority.urgent{border-left-color:#ef4444}
+.priority.medium{border-left-color:#eab308}
+.priority .num{font-weight:700;color:#0693e3;min-width:30px}
+.priority.urgent .num{color:#ef4444}
+.priority.medium .num{color:#eab308}
+.priority .text{color:rgba(255,255,255,.7);font-size:.9rem}
+.timeline{border-left:2px solid rgba(6,147,227,.15);padding-left:24px;margin:20px 0}
+.t-item{padding:10px 0;position:relative}
+.t-item::before{content:'';position:absolute;left:-29px;top:16px;width:10px;height:10px;border-radius:50%;background:#0693e3}
+.t-item .t{font-size:.7rem;color:rgba(255,255,255,.3);font-family:monospace}
+.t-item .d{font-size:.9rem;color:rgba(255,255,255,.6)}
+.t-item .d code{background:rgba(6,147,227,.1);padding:1px 6px;border-radius:4px;color:#0693e3;font-size:.8rem}
+.email-box{background:#0f1a2e;border:1px solid rgba(6,147,227,.3);border-radius:16px;padding:32px;margin:20px 0;position:relative}
+.email-box .label-top{position:absolute;top:-10px;left:20px;background:#0693e3;color:#fff;font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:4px 12px;border-radius:100px}
+.email-box .to{color:#0693e3;font-size:.8rem;font-weight:600;margin-bottom:4px}
+.email-box .subject{color:#fff;font-weight:600;font-size:1rem;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(6,147,227,.15)}
+.email-box .body{color:rgba(255,255,255,.55);font-size:.9rem;line-height:1.8}
+.email-box .body p{margin-bottom:14px}
+.email-box .body strong{color:#8ed1fc}
+.email-box .body a{color:#0693e3}
+.copy-hint{color:rgba(255,255,255,.25);font-size:.7rem;text-align:center;margin-top:16px}
+footer{text-align:center;padding:40px;border-top:1px solid rgba(6,147,227,.1);margin-top:60px;color:rgba(255,255,255,.2);font-size:.8rem}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="hero">
+<div class="date">Studio Update · Quartermaster AI Studio</div>
+<h1>Everything We Shipped</h1>
+</div>
+<div class="stats">
+<div class="stat"><div class="n">4</div><div class="l">Live Sites</div></div>
+<div class="stat"><div class="n">10</div><div class="l">Repos Pushed</div></div>
+<div class="stat"><div class="n">10</div><div class="l">Ideas Captured</div></div>
+<div class="stat"><div class="n">2</div><div class="l">Client Targets</div></div>
+<div class="stat"><div class="n">1</div><div class="l">System (Free)</div></div>
+</div>
+
+<div class="section-label">Live Sites</div>
+<div class="grid">
+<div class="card"><span class="tag tag-live">LIVE</span><h3>Mr. Roofing Redesign</h3><p>Premium client demo. Blue theme matching his brand. 20+ animations. Real photos. 5 CTAs. Hook-driven copy. Mesh backgrounds on all sections.</p><a class="link" href="https://mr-roofing-redesign.vercel.app" target="_blank">mr-roofing-redesign.vercel.app →</a></div>
+<div class="card"><span class="tag tag-live">LIVE</span><h3>Roofing Proposal</h3><p>$2,000 setup + $200/appointment. Speed-to-lead hook. Whop payment links. Blue theme. Mesh backgrounds on all 12 sections.</p><a class="link" href="https://roofing-proposal.vercel.app" target="_blank">roofing-proposal.vercel.app →</a></div>
+<div class="card"><span class="tag tag-live">LIVE</span><h3>CloseKit — Free & Open Source</h3><p>The complete website-building system. $0. MIT license. Scrape → Build → Deploy → Close in 3 hours.</p><a class="link" href="https://ypc-ux.github.io/learn/closekit.html" target="_blank">closekit.html →</a></div>
+<div class="card"><span class="tag tag-live">LIVE</span><h3>Learn Hub</h3><p>Interactive knowledge: A16Z blueprint, Web Design Bible, cost arbitrage, Contractor Blue spec, anti-slop rules.</p><a class="link" href="https://ypc-ux.github.io/learn/" target="_blank">ypc-ux.github.io/learn →</a></div>
+</div>
+
+<div class="section-label">Repos Pushed (All Live on GitHub)</div>
+<div class="grid">
+<div class="card"><span class="tag tag-done">PUSHED</span><h3>ypc-ux/learn</h3><p>Web Design Bible (315+ lines: 24 rules + copy framework + anti-slop + background system) + CloseKit page.</p><a class="link" href="https://github.com/ypc-ux/learn" target="_blank">github.com/ypc-ux/learn →</a></div>
+<div class="card"><span class="tag tag-done">PUSHED</span><h3>ypc-ux/studio-ideas</h3><p>10 ideas: TikTok Shop (RizzScript), Filmmaking Toolkit, Sports Mixtape, GPU Broker, Contact Lenses, IDE, usefr eval, Horror film, Contractor Blue, ValueDrop agent.</p><a class="link" href="https://github.com/ypc-ux/studio-ideas" target="_blank">studio-ideas →</a></div>
+<div class="card"><span class="tag tag-done">PUSHED</span><h3>ypc-ux/studio-master</h3><p>Holding company: portfolio, YC framework, revenue streams, email drafts, Bland.ai setup guide.</p><a class="link" href="https://github.com/ypc-ux/studio-master" target="_blank">studio-master →</a></div>
+<div class="card"><span class="tag tag-done">PUSHED</span><h3>ypc-ux/personal-brand</h3><p>Synthetic identity: ENTJ-A, Navy Quartermaster story, content strategy, 5-year narrative arc.</p><a class="link" href="https://github.com/ypc-ux/personal-brand" target="_blank">personal-brand →</a></div>
+<div class="card"><span class="tag tag-done">PUSHED</span><h3>ypc-ux/mr-roofing-redesign</h3><p>Client demo: GSAP pinned scroll, Lenis, glassmorphism nav, gradient mesh on all sections, brand marquee, spotlight hover.</p><a class="link" href="https://github.com/ypc-ux/mr-roofing-redesign" target="_blank">mr-roofing-redesign →</a></div>
+<div class="card"><span class="tag tag-done">PUSHED</span><h3>ypc-ux/ops</h3><p>16/16 tests. Digest cron firing. GitHub Issues delivery. Phase 2 collectors documented.</p><a class="link" href="https://github.com/ypc-ux/ops" target="_blank">ops →</a></div>
+</div>
+
+<div class="section-label">Priorities — In Order</div>
+<div class="priority urgent"><div class="num">1</div><div class="text"><strong>SEND THE EMAIL TO MATT</strong> — Everything is built. Copy the email below. Send it. Call him after.</div></div>
+<div class="priority urgent"><div class="num">2</div><div class="text"><strong>Run Bland.ai test call</strong> — API key in studio-master/AI_CALLS_SETUP.md. Test on your phone first.</div></div>
+<div class="priority urgent"><div class="num">3</div><div class="text"><strong>In-person demo with Matt</strong> — Show website + live AI call. Close $2,500.</div></div>
+<div class="priority medium"><div class="num">4</div><div class="text"><strong>Dustin (windows guy)</strong> — $500 website only. Need his phone/email first. Same process.</div></div>
+<div class="priority medium"><div class="num">5</div><div class="text"><strong>Whop products</strong> — Create "Roofing Setup $2,000" and update proposal payment links.</div></div>
+<div class="priority"><div class="num">6</div><div class="text"><strong>RizzScript MVP</strong> — TikTok Shop tool. Build after first client revenue.</div></div>
+<div class="priority"><div class="num">7</div><div class="text"><strong>GPU broker</strong> — Atlanta sourcing. Side hustle to fund software.</div></div>
+
+<div class="section-label">Email to Matt — Copy & Send Now</div>
+<div class="email-box">
+<div class="label-top">Copy This</div>
+<div class="to">To: Matt Reeves (Mr. Roofing & Construction)</div>
+<div class="subject">I built you something. Free preview inside.</div>
+<div class="body">
+<p>Hey Matt,</p>
+<p>I've been studying mrroofingandconstruction.com — I see what you've built. Family business, great reviews, 8 years serving Metro East Atlanta.</p>
+<p>But your website is doing you a disservice. It doesn't match the quality of your work.</p>
+<p>So I built you something. Here it is:</p>
+<p><strong><a href="https://mr-roofing-redesign.vercel.app" target="_blank">Your new website preview → https://mr-roofing-redesign.vercel.app</a></strong></p>
+<p>I'd rather show you in person than explain over email. When are you free this week? I'll drive to Conyers and walk you through:</p>
+<p>1. <strong>Your new website</strong> — already built, already live. $500.<br>
+2. <strong>A lead generation system</strong> — guarantees 20 booked appointments in your first 30 days. $200 per appointment, you only pay for results. $2,000 setup.<br>
+3. <strong>An AI that calls your leads within 5 minutes</strong> — live demo, right there.</p>
+<p>If you like what you see, we go live this week. If you don't, no hard feelings.</p>
+<p>Just reply with a day and time that works. I'll be there.</p>
+<p>— Julius Young III<br>velocitydemos.com</p>
+</div>
+<div class="copy-hint">↑ Select all → Copy → Paste into Gmail → Send</div>
+</div>
+
+<div class="section-label">Email to Dustin — Copy & Send</div>
+<div class="email-box">
+<div class="label-top">Copy This</div>
+<div class="to">To: Dustin (Windows / Commercial Roofing)</div>
+<div class="subject">Your website — I already built it. $500.</div>
+<div class="body">
+<p>Hey Dustin,</p>
+<p>I build websites for contractors in Metro Atlanta. I saw your work and I was impressed.</p>
+<p>I just finished a website for a roofing company in Conyers. Here's what it looks like: <strong><a href="https://mr-roofing-redesign.vercel.app" target="_blank">https://mr-roofing-redesign.vercel.app</a></strong></p>
+<p>Yours would be the same quality — customized for your window installation and commercial roofing business. Your photos, your reviews, your branding.</p>
+<p>$500 one-time. I'll come to you and show you everything in person.</p>
+<p>What's your availability this week?</p>
+<p>— Julius Young III<br>velocitydemos.com</p>
+</div>
+<div class="copy-hint">↑ Need Dustin's phone number or personal email — he has no business email</div>
+</div>
+
+<div class="section-label">Session Timeline</div>
+<div class="timeline">
+<div class="t-item"><div class="t">PHASE 1</div><div class="d">Cloned ops, ypc-ux (2 branches), jbuilds. Verified 16/16 ops tests. Wired <code>batch-call</code> CLI. Fixed integration-advisor.md.</div></div>
+<div class="t-item"><div class="t">PHASE 2</div><div class="d">Built roofing proposal site → Vercel. Created ops dashboard → GitHub Pages.</div></div>
+<div class="t-item"><div class="t">PHASE 3</div><div class="d">Researched Mr. Roofing. Extracted colors, downloaded 10 real photos. Built premium redesign (GSAP + Lenis + Framer Motion).</div></div>
+<div class="t-item"><div class="t">PHASE 4</div><div class="d">Researched TikTok Shop market (ContentPilotX, Logie). Documented 10 ideas. Created studio-master, personal-brand, learn repos.</div></div>
+<div class="t-item"><div class="t">PHASE 5</div><div class="d">Rewrote copy with A16Z hooks. Added mesh backgrounds to every section. Created Web Design Bible (315+ lines). CloseKit = free. Added anti-slop rules.</div></div>
+</div>
+
+<div class="section-label">Blocked — Needs You</div>
+<div class="grid">
+<div class="card"><span class="tag tag-blocked">NEEDS</span><h3>Bland.ai Test Call</h3><p>API key ready in AI_CALLS_SETUP.md. Run the curl to your own phone first.</p></div>
+<div class="card"><span class="tag tag-blocked">NEEDS</span><h3>Whop Product</h3><p>Create "Roofing Setup — $2,000". Copy the payment link URL back to me.</p></div>
+<div class="card"><span class="tag tag-blocked">NEEDS</span><h3>Dustin's Contact</h3><p>No business email. Need his phone number or personal email.</p></div>
+</div>
+
+<footer>Quartermaster AI Studio · <a href="https://github.com/ypc-ux" target="_blank">github.com/ypc-ux</a></footer>
+</div>
+</body>
+</html>
+
