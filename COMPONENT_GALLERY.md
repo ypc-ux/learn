@@ -1,5 +1,7 @@
 # Component Gallery Protocol — Pick Your Animations
 
+> **Not sure which animations fit which industry?** The Web Design Bible now has **Industry Animation Blueprints** — 7 verticals with research-backed palettes, animation stacks, anti-patterns, and copy templates. Read it first: `WEB_DESIGN_BIBLE.md` → Industry Animation Blueprints.
+
 ## How This Works
 
 Instead of me guessing what animations you want, you browse a gallery and tell me which ones to use.

@@ -433,3 +433,244 @@ main {
 }
 ```
 
+
+---
+
+# Industry Animation Blueprints (The Vertical System)
+
+Every vertical site uses the **same skeleton**: nav → hero → pain → solution → proof → offer → CTA. What changes per vertical: palette, animation stack, and copy. Skin the skeleton, don't rebuild it.
+
+## The Research Basis (read this before picking animations)
+
+- **Peripheral motion demands attention.** Moving elements in peripheral vision trigger a stimulus-driven attention shift (Pratt et al., 2010). This is why ambient background animation works for attention-hungry audiences and fails for task-focused ones.
+- **Slow transitions = less distracting. Fast = attention-grabbing.** NN/g: slow for things the user didn't trigger, fast for things they did. A slow gradient on a headline is ambience. A fast shimmer on a CTA is a spotlight.
+- **Repetition kills.** The user sees your hero animation once per visit. Keep repeated elements static.
+- **85% of consumers cite color as the primary reason they buy; 62-90% of snap judgments are based on color alone** (CCICOLOR via Colorlib 2026). Color is the first conversion lever.
+- **Blue is the trust color.** 57% of men pick it as their favorite (Hallock); 75%+ of major banks use it.
+- **Purple has the biggest gender gap:** 23% of women vs 1% of men (Hallock). Purple-heavy sites skew female or creative.
+- **Red CTAs beat green by 21%** (HubSpot A/B test). Contrast against the page matters more than the hue.
+- **Only 29% of websites meet WCAG AA contrast** (WebAIM). Fix contrast before adding a single animation.
+- **Dark mode adoption: 82%** among users who have the option. Dark-first is safe everywhere except restaurants.
+
+## The 7 Verticals
+
+### 1. Home Services — roofing, HVAC, plumbing, electrical, windows
+
+- **Avatar:** Male homeowner, 35-65, married, $75-150K household. Fears getting ripped off more than the price.
+- **ICP thought:** "I need this fixed NOW and I don't want to get played."
+- **Emotion:** Trust + urgency.
+- **Palette:** `#003388` primary, white, steel gray, red accent for urgency elements only.
+- **Animation stack:** Marquee (brand/review logos), NumberTicker (jobs completed, years — proof via big numbers), MagicCard (service cards with cursor spotlight), ShineBorder (guarantee boxes), BorderBeam (CTA section), BlurFade (section reveals).
+- **Anti-patterns:** Particles, Meteors, AuroraText. A 55-year-old homeowner reads floating dots as "something's wrong with my computer."
+- **Copy template:**
+  - Hook: "Most contractors call leads back in 42 minutes. Homeowners hire someone else by minute 10."
+  - Sub: one number + one guarantee. "2,847 roofs. 15 years. If we don't show up, you don't pay."
+  - CTA: "Get My Free Inspection"
+
+### 2. Creative / Gen Z — content creators, TikTok Shop, musicians
+
+- **Avatar:** 18-28, creator or aspiring, urban, $20-80K. Optimizes for looking cool.
+- **ICP thought:** "Show me something I haven't seen."
+- **Emotion:** Excitement + FOMO.
+- **Palette:** `#a855f7` purple, neon blue `#8ed1fc`, hot pink `#e879f9`, near-black `#0B1426` base.
+- **Animation stack:** Meteors (hero), Particles (ambient), AuroraText (headline), TextAnimate blurInUp, MagicCard, BorderBeam (waitlist box), ShimmerButton (CTA), Confetti (on submit — the delight moment), OrbitingCircles (feature diagram).
+- **Anti-patterns:** NumberTicker (reads corporate), static hero sections, slow loads.
+- **Copy template:**
+  - Hook: "Your scripts. Your rizz. One app." (under 8 words, rhythm of 3)
+  - Sub: name the enemy. "Stop switching between 5 apps."
+  - CTA: real scarcity. "200 beta spots. Free."
+
+### 3. Professional Services — accountants, lawyers, consultants, agencies
+
+- **Avatar:** Business owner, 30-55, college-educated, $100-500K. Pays for credibility.
+- **ICP thought:** "Convince me you won't waste my time."
+- **Emotion:** Authority + sophistication.
+- **Palette:** `#0B1426` black-navy (black reads 50% more luxurious — Reboot), white, gold accent.
+- **Animation stack:** NumberTicker (case results, client counts), TextReveal (credentials word by word), BlurFade, BentoGrid (service breakdown), AnimatedBeam (process diagram), ProgressiveBlur (background depth).
+- **Anti-patterns:** Everything flashy. One meteor on a lawyer's site ends the conversation.
+- **Copy template:**
+  - Hook: a case result with a number. "We recovered $2.3M for a 40-person firm."
+  - Sub: methodology in one line.
+  - CTA: "Book a 15-Minute Call"
+
+### 4. Health & Wellness — dental, med spas, gyms, therapy
+
+- **Avatar:** Female, 28-55, health-conscious, $60-150K. Decides on "does this place feel clean."
+- **ICP thought:** "I want to feel safe and cared for."
+- **Emotion:** Calm + trust.
+- **Palette:** Teal `#0d9488`, white, cream, soft pink. Only 7% of top brands use green — ownable in local markets.
+- **Animation stack:** AnimatedGradientText (slow headline gradient), BlurFade, InfiniteMovingCards (testimonial stream), MagicCard with soft glow (treatment cards), ParallaxScroll (before/after galleries).
+- **Anti-patterns:** Meteors, fast animations, harsh geometry.
+- **Copy template:**
+  - Hook: the outcome, not the treatment. "Walk out smiling same day."
+  - Sub: safety + convenience. "Evening appointments. Financing available."
+  - CTA: "Book My Consult"
+
+### 5. Luxury / Premium Builds — high-end remodel, custom homes, architecture
+
+- **Avatar:** $200K+ homeowner, 40-65, design-conscious. Buys taste, not price.
+- **ICP thought:** "Show me your taste before you show me a quote."
+- **Emotion:** Aspiration + exclusivity.
+- **Palette:** Pure black, gold `#d4a853`, charcoal, warm white.
+- **Animation stack:** HeroParallax (project photos at different scroll speeds — Aceternity), 3DMarquee (portfolio grid), ContainerScrollAnimation (hero rotates in 3D on scroll), TracingBeam (project timeline), GlareHover (light across cards), NoiseTexture (editorial grain).
+- **Anti-patterns:** NumberTicker (reads salesy), bright colors, playful motion.
+- **Copy template:**
+  - Hook: one project, one sentence, no adjectives that do the photo's job.
+  - Sub: scarcity of attention, not of slots. "We take 12 projects a year."
+  - CTA: "Request a Private Consultation"
+
+### 6. Real Estate & Property
+
+- **Avatar:** Buyer/seller, 28-55, anxious about the biggest transaction of their life.
+- **ICP thought:** "Show me data and homes, and make me feel confident."
+- **Emotion:** Information + visualization.
+- **Palette:** Deep blue `#1e3a5f`, white, warm gray, green accent for sold/growth.
+- **Animation stack:** NumberTicker (market stats, days on market), BentoGrid (property features), ParallaxScroll + ImageSlider (property galleries), AnimatedBeam (buying process timeline).
+- **Anti-patterns:** Entertainment animation. This audience wants to scan, not watch.
+- **Copy template:**
+  - Hook: a market fact they can verify. "Homes in [county] sold in 9 days last quarter."
+  - Sub: process clarity. "List. Prep. Sold. 3 steps."
+  - CTA: "Get My Home's Value"
+
+### 7. Restaurants & Food
+
+- **Avatar:** Hungry local, 21-55, mobile-first, deciding in seconds.
+- **ICP thought:** "Looks good. Where is it. How fast."
+- **Emotion:** Appetite + urgency.
+- **Palette:** Red `#E53E3E` + yellow `#ECC94B` (the McDonald's stack — red stimulates appetite, yellow grabs attention). Cream, dark brown. **Never blue** — suppresses appetite.
+- **Animation stack:** 3DMarquee (food photo grid), FlipWords (menu highlights: "Fresh • Local • Daily"), AnimatedList (menu reveals), ContainerScrollAnimation (hero dish shot), BackgroundGradient (warm tones), ShimmerButton (Order Now).
+- **Anti-patterns:** Cool/dark themes, slow calm animations, purple.
+- **Copy template:**
+  - Hook: the dish, the price, or the speed. "Wood-fired in 90 seconds."
+  - Sub: location + hours, above the fold.
+  - CTA: "Order Now" / "Reserve a Table"
+
+## The Selection Algorithm
+
+1. Identify the avatar's gender skew and age (color preference data).
+2. Identify the core fear or desire (rip-off, boredom, wasted time, safety, status, information, hunger).
+3. Pick palette from the vertical table. Contrast-check it (WCAG AA, 4.5:1 body text).
+4. Pick 4-6 animations max. One ambient (background), one hero moment, one interactive (cards), one CTA treatment, one scroll reveal.
+5. Run the anti-pattern check. Delete anything on the list.
+6. QA: run the Playwright test. 100% or don't ship.
+
+---
+
+# The Copy Stack
+
+Design gets attention. Copy converts it. These rules apply to every site we ship.
+
+## Voice (Humanizer Rules)
+
+1. **Keep every claim, cut every inflation.** No "game-changer," no "revolutionary," no "seamlessly." Say what it does, with numbers.
+2. **One idea per sentence. Vary the length.** Short. Then a longer one that lands the point and carries the proof with it.
+3. **Second person always.** "Your roof," not "our valued customers' roofs."
+4. **No stock AI phrases:** "in today's fast-paced world," "look no further," "unlock the power of," "elevate your," "we've got you covered." If it could appear on any site in any industry, delete it.
+5. **Specific beats impressive.** "2,847 roofs in 15 years" > "decades of experience." "Calls leads back in 5 minutes" > "lightning-fast response."
+6. **Numbers over adjectives.** Every adjective should make you ask: what's the number instead?
+7. **Read it aloud.** If you wouldn't say it to the client's face, it doesn't ship.
+
+## Section-by-Section Formulas
+
+| Section | Job | Formula |
+|---|---|---|
+| Hero hook | Stop the scroll | Their pain or a number they can't argue with, under 8 words |
+| Hero sub | Pay off the hook | The mechanism + one proof point |
+| Pain section | Make them nod | 4 pains in THEIR words ("You write scripts in Notes app"), never your words |
+| Solution | Show the mechanism | Features as outcomes: "Speed control, mirror mode" not "Advanced settings" |
+| Proof | Borrowed credibility | Numbers, logos, one named result. No fake testimonials, ever. |
+| Offer | Make the yes small | Price + what's included + guarantee + risk reversal |
+| CTA | Own the action | First-person verb: "Get My Free Inspection," "Join Waitlist," "Book My Consult" |
+
+## The Hook Library (A16Z architecture)
+
+Every hook: **Context Lean-In → Scroll-Stop ("But/Here's the thing") → Contrarian Snapback → Value Transfer → Ease Close.**
+
+Ten shapes that work:
+
+1. **The Competitor Callout** — "Your competitor booked the lead you missed."
+2. **The Time Bomb** — "Most contractors call back in 42 minutes. Homeowners hire by minute 10."
+3. **The Cost of Inaction** — "Every week your website looks like 2015, you're paying for it."
+4. **The Insider Leak** — "Roofers in Gwinnett are booking 20 appointments a month with this."
+5. **The Contrarian** — "You don't need more leads. You need to answer the ones you have."
+6. **The Enemy** — "It's not your ads. It's your callback speed."
+7. **The Us vs Them** — "Agencies charge $5K/month to do what this does for $297."
+8. **The Confession** — "I built this because I got tired of watching good contractors lose to bad marketers."
+9. **The Question Filter** — "What would 20 extra appointments a month do to your calendar?"
+10. **The Trojan Gift** — "Here's the exact system, free. Steal it." (next section)
+
+## Copy Correctness Checklist (run before every deploy)
+
+- [ ] Phone number identical everywhere, one format: (XXX) XXX-XXXX
+- [ ] Prices identical everywhere ($500 / $2,000 / $297/mo)
+- [ ] No placeholders: grep for "lorem", "TODO", "your@email", "Example", "XX%"
+- [ ] No emoji as icons — SVG only
+- [ ] Every claim traceable to a real number or the client's real data
+- [ ] Names spelled correctly (client, city, county)
+- [ ] CTAs first-person, visible, background transparency verified
+- [ ] Footer credits the real builder, links work
+- [ ] Title tag = hook + brand, under 60 chars
+- [ ] Meta description = the pitch, under 155 chars
+
+---
+
+# Trojan Horse Marketing
+
+## The Mental Model
+
+A Trojan Horse is an innocuous container that hides your true intent until it's past the defenses (Farnam Street). The Greeks didn't breach Troy's walls in ten years of assault. They built a gift the Trojans valued — made from sacred wood, shaped like a sacred animal — and the Trojans dragged it inside themselves.
+
+Marketing translation: your prospects have walls — ad blockers, spam filters, the scroll reflex. You don't break in. You build something they drag in.
+
+**Jonah Berger, Contagious:** "Information travels under the guise of what seems like idle chatter... we need to make our message so integral to the narrative that people can't tell the story without it."
+
+**The core insight:** People have strong defenses against anything that looks like a pitch. They have no defenses against a genuine gift.
+
+## Was It Already in Our Hook Strategy?
+
+Partially. The A16Z formula's "Value Transfer" line (lines 4-5 of the cold email) was doing Trojan Horse work without the name — the contrarian snapback drops the gate, the value transfer is the payload that gets dragged inside. But no doc named it, and no offer was designed around it. Now they are. The Trojan Horse is the layer between the hook (gets you read) and the offer (gets you paid).
+
+## The 8-Step Trojan Horse Playbook (Bustamante method)
+
+Daniel Bustamante landed his first $10K ghostwriting client — and then $100K+ total — with this:
+
+1. **Break down your offer stack.** List every deliverable in your paid service. Everything — the strategy calls, the reports, the small stuff.
+2. **Extract a slice.** The Trojan Horse Offer is a piece of your actual paid service, not a random freebie. It must be valuable standalone.
+3. **Size it right.** Fulfillable in a few days. Meaningful enough that they want it. Repeatable across most of your ICP.
+4. **Pick ONE.** The slice most of your ideal clients are missing.
+5. **Write the pitch script.** Personalized email/DM + an offer they'd feel stupid refusing.
+6. **Pitch it.** No mention of the paid service in the first message. The gift is the message.
+7. **Overdeliver.** Fulfill it like it was the $10K project. This is the whole game.
+8. **Let them ask for the upsell.** The client who says "what else can you help with?" closes himself.
+
+A valid Trojan Horse Offer is: (a) part of your real service, (b) valuable on its own even if they never pay you, (c) doable in under a week, (d) needed by nearly all of your ICP.
+
+## Our Trojan Horse Stack
+
+| The Gift (they drag it in) | The Payload (behind the walls) | Status |
+|---|---|---|
+| $500 website redesign | $2,000 lead gen system — the site is the foot in the door | Pitched to Matt, Dustin |
+| CloseKit (free, open source) | Authority + notoriety → inbound for the paid studio | Live |
+| RizzScript free beta (200 spots) | Paid creator app + waitlist pipeline | Landing live |
+| Learn hub + Web Design Bible | Positions us as the packaging-layer experts; YC thesis proof | Live |
+| Free AI receptionist test call | Bland.ai setup engagements at ~97% margin | API key ready |
+| Vertical demo sites | Proof of the $500 offer at scale — "see your industry's site" | System built |
+
+**The pattern:** every asset is both a real gift and a paid thing in disguise. If you can't name the payload, the asset is a hobby, not a Trojan Horse.
+
+## Trojan Horse Rules
+
+1. **The gift must be real.** A fake gift (thin PDF, teaser audit) reads as a pitch with better camouflage. The walls go back up and they never open again.
+2. **Fit the gift to the audience.** The Greeks used sacred wood for a sacred audience. A roofer doesn't want a "growth audit" — he wants to see his competitor's site next to his.
+3. **The payload never ships in the first touch.** First message = gift only. The upsell happens after overdelivery, when they ask.
+4. **Stories are Trojan horses.** Case studies beat ads because the moral rides inside a story the prospect chose to hear. "One roofing company in Conyers got 20 booked appointments in 30 days" is a story first, a pitch second.
+5. **The gift is a slice, not the whole.** Give away the diagnosis, sell the surgery. Give away the website, sell the lead gen. Give away the system, sell the service.
+6. **If the gift looks too good to be true, it backfires.** Farnam Street's heuristic cuts both ways — price the paid thing fairly so the gift reads as generosity, not a trap.
+
+## Where the Trojan Horse Lives in Our Copy
+
+- **Cold email:** the gift in lines 4-5. The 42-minute stat IS the gift — actionable even if they never call you.
+- **Landing pages:** free beta, free inspection, free value calculator.
+- **Content:** teach the whole system publicly (CloseKit, this Bible). People who could DIY but won't become clients. People who can't DIY become evangelists.
+- **Proposals:** the demo site is built BEFORE the call. "Your new website is already live at this URL" is the strongest Trojan Horse we have.
+
